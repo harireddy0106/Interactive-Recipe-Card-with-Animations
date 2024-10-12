@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Recipe Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="recipe-card" id="scroll-item">
+        <h1>Chocolate Cake</h1>
+        <div class="image-container">
+            <img src="https://assets.winni.in/product/primary/2024/3/94564.jpeg?dpr=1&w=1000" alt="Chocolate Cake" class="image" />
+        </div>
+        
+        <div class="prep-info">
+            <p>Prep Time: 30 mins | Serving Size: 8</p>
+            <p>Price: ₹350.00</p>
+        </div>
+        
+        <button id="toggle-ingredients">Show Ingredients</button>
+        <ul id="ingredients" class="hidden">
+            <li>2 cups flour</li>
+            <li>1 cup sugar</li>
+            <li>1/2 cup cocoa powder</li>
+            <li>1 tsp baking powder</li>
+            <li>1/2 tsp salt</li>
+            <li>2 eggs</li>
+            <li>1 cup milk</li>
+            <li>1/2 cup vegetable oil</li>
+        </ul>
+
+        <button id="toggle-steps">Show Steps</button>
+        <ol id="steps" class="hidden">
+            <li>Preheat the oven to 350°F (175°C). </li>
+            <li>Grease and flour a cake pan.</li>
+            <li>Mix dry ingredients in one bowl.</li>
+            <li>Mix wet ingredients in another bowl.</li>
+            <li>Combine both mixtures.</li>
+            <li>Pour the batter into the prepared pan.</li>
+            <li>Bake for 30-35 minutes.</li>
+            <li>Let the cake cool before serving.</li>
+        </ol>
+
+        <button id="start-cooking">Start Cooking</button>
+        <button id="making-process">Making Process Videos</button>
+            <ul id="Making" class="hidden">
+                <li><a href="https://youtu.be/ImMty2LQBi4?si=LAwWuw92LxwogdMh">Telugu</a></li>
+                <li><a href="https://youtu.be/3nVnmjSWGfs?si=UzosjXvDJFRh-wmH">English</a></li>
+                <li><a href="https://youtu.be/J7bjH5IdMjc?si=lRVvB7Ebvx5RUf2l">Hindi</a></li>
+            </ul>
+
+        <button id="cancel" class="hidden">Cancel</button>
+        <button id="print-bill" class="hidden">Print Bill</button>
+
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+
+        <p class="cooking-status hidden" id="cooking-status"></p>
+        <p id="timer" class="hidden"></p>
+
+        <div id="bill" class="hidden">
+            <h2>Bill</h2>
+            <p>Item: Chocolate Cake</p>
+            <p>Price: ₹350.00</p>
+            <p id="time-bill"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

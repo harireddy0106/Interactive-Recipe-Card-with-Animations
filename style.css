@@ -1,0 +1,286 @@
+/* General Recipe Card Styling */
+body {
+    background: url('https://png.pngtree.com/thumb_back/fw800/background/20231230/pngtree-illustrated-vector-background-restaurant-menu-design-with-paper-texture-food-and-image_13914730.png') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.recipe-card {
+    width: 100%;
+    height: 90%;
+    max-width: 600px;
+    background: linear-gradient(145deg, #f8f3f1, #f7a603); /* Initial background */
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-out, rotateBackground 10s infinite linear; /* Smooth background animation */
+    aspect-ratio: 2 / 1; /* 2:1 aspect ratio */
+    overflow: auto;
+    position: relative;
+    scroll-snap-type: y mandatory; /* Vertical snap */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Keyframes for smoothly rotating background color */
+@keyframes rotateBackground {
+    0% {
+        background: linear-gradient(45deg, #f8f3f1, #f7a603); /* Initial colors */
+    }
+    25% {
+        background: linear-gradient(90deg, #f8f3f1, #f7a603); /* Soft transition to orange tones */
+    }
+    50% {
+        background: linear-gradient(135deg, #f8f3f1, #f7a603); /* Darker orange tones */
+    }
+    75% {
+        background: linear-gradient(145deg, #f8f3f1, #f7a603); /* Lighter transition */
+    }
+    100% {
+        background: linear-gradient(180deg, #f8f3f1, #f7a603); /* Back to initial colors */
+    }
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Pacifico', cursive;
+    color: #333;
+    animation: slideInFromTop 3s ease, colorChange 4s infinite alternate; /* Combined animations */
+}
+
+@keyframes colorChange {
+    0% { color: rgb(13, 203, 209); }
+    50% { color: #f7a603; }
+    100% { color: black; }
+}
+
+.image-container {
+    margin: 0 auto;
+    padding: 5px;
+    width: 300px; 
+    border-radius: 20px;
+    position: relative; 
+    overflow: hidden; 
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.image-container::after, .image-container::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the gradient */
+    z-index: -1; /* Place the gradient behind the image */
+    border-radius: 20px; /* Match border radius */
+    animation: spin 1000s linear infinite; /* Changed to remove delay */
+    animation-iteration-count: infinite;
+}
+
+.image-container::before {
+    filter: blur(1.5rem); /* Blur effect for the gradient */
+    opacity: 0.5; /* Opacity for a subtle effect */
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg; /* Start angle */
+    }
+    to {
+        --angle: 360deg; /* End angle for a full rotation */
+    }
+}
+
+.image {
+    width: 100%; /* Make the image responsive */
+    border-radius: 20px; /* Rounded corners for the image */
+    transition: transform 0.4s ease-in-out; /* Smooth scale effect on hover */
+    position: relative; /* Position relative to allow z-index */
+    z-index: 1; /* Ensure the image is on top of the gradient */
+}
+
+.image:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.prep-info {
+    margin: 20px 0;
+    animation: fadeInUp 1.5s ease;
+}
+
+.prep-info p {
+    font-size: 18px;
+    color: #444;
+}
+
+button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #d35400;
+    transform: translateY(-3px);
+}
+
+ul, ol {
+    margin-top: 20px;
+    text-align: left;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+    animation: fadeInUp 1.5s ease;
+}
+
+/* Hover effect for list items */
+li:hover {
+    color: #e67e22;
+    text-decoration: underline;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+/* Hidden elements */
+.hidden {
+    display: none;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+    height: auto;
+}
+
+/* Highlight for steps */
+.highlight {
+    background-color: #f1c40f;
+    transition: background-color 0.3s;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.progress {
+    width: 0;
+    height: 10px;
+    background-color: #e67e22;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+/* Cooking status */
+.cooking-status {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #28a745;
+}
+
+/* Timer */
+#timer {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+#bill {
+    font-size: 20px;
+}
+
+#Making a {
+    margin: 10px;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .recipe-card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+/* Print-Friendly Layout */
+@media print {
+    .recipe-card {
+        border: none;
+        box-shadow: none;
+    }
+
+    button {
+        display: none;
+    }
+
+    #bill {
+        display: block;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
